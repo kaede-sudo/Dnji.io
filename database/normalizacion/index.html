@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Normalizacion BDD</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="circle-container">
+        <div class="circle">
+          <button id="close">
+            <i class="fas fa-times"></i>
+          </button>
+          <button id="open">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="content">
+        <h1>NORMALIZACIÓN BDD </h1>
+        <small>NORMALIZACIÓN DEL CHEVERISIMO</small>
+        <p>Las formas normales son un conjunto de reglas que se utilizan para diseñar bases de datos relacionales. Estas reglas ayudan a garantizar que las bases de datos sean eficientes, flexibles y fáciles de mantener..</p>
+
+       <br> <h3>Primera Forma Normal (F1)</h3>
+        <img src="/home/kaede/programing/Dnji.io/imagenes/IA.jpg" alt="pasos a seguir" />
+        <p>Una tabla está en primera forma normal (INF) si cumple con los siguientes criterios:
+Cada columna contiene un valor a escalar y
+No hay valores duplicados en ninguna fila</p>
+         </br>
+        <h3>segunda forma normal (F2)</h3>
+        <p>Una tabla está en segunda forma normal (2NF) si esta en (1NF) y cada atributo no clave depende completamente de la clave primaria
+</p>
+<br><h3>Tercera forma normal (3F)</h3> 
+  <p>Una tabla está en tercera forma normal (3NF) si está en (2NF) y no hay atributos no clave que dependan de otros atributos no clave.</p>
+</br>       
+         <h3>Cuarta forma normal (F4)</h3>
+        <p>Una tabla está en cuarta forma normal (4NF) si está en 3NF y no hay dependencias transitivas entre atributos no clave.</p>
+      <img src="tabla1.png">
+        
+          <style>
+           h3 {color: orange; 
+          }
+          </style>
+        <style>
+          h1 {color: purple}
+        </style>
+        <style>
+          h4 {color: green;}
+        </style>
+        <style>h2 {color: violet;}</style>
+        
+        <br><h3>Alalisis</h3></br>
+        <h4>Tabla Productos</h4>
+        <p>La columna "nombre" no es atómica. El nombre de un producto podría dividirse en varios campos, como "nombre", "tipo" y "marca". La columna "descripción" no es atómica. La descripción de un producto podría dividirse en varios campos, como "ingredientes" y "métodos de preparación"</p>
+     <h4>Tabla Proveedores</h4>
+        <p>La columna "idProveedor" es clave principal, pero no determina de manera única el valor de la columna "nombre". Por ejemplo, dos proveedores diferentes podrían tener el mismo nombre.</p>
+<h4>Tabla Compras</h4>
+        <p>La columna "idProducto" determina tanto la descripción como el precio del producto. Esto crea una dependencia transitiva.</p>        
+<h4>Tabla Ventas</h4>
+        <p>La columna "idCliente" es clave principal, pero no determina de manera única el valor de la columna "nombre". Por ejemplo, dos clientes diferentes podrían tener el mismo nombre
+
+<br>
+  
+  </br>
+  <h2>
+    Normalizacion
+  </h2>
+  <h4>• Dividir la tabla en dos tablas: </h4>
+
+<p> ➣Tabla Productos: idProducto | nombre | tipo |
+
+marca |</p>
+
+<p> ➣Tabla DescripciónProductos: | idProducto |
+
+ingredientes | métodos de preparación |
+
+<p> ➣ Tabla Proveedores: </p>
+
+<h4>• Dividir la tabla en dos tablas: </h4>
+
+<p> ➣ Tabla Proveedores: | idProveedor | nombre | </p>
+
+<p> ➣ Tabla Contacto Proveedores: idProveedor
+
+teléfono | dirección |
+
+<p> ➣ Tabla Compras: </p>
+
+<h4> • Dividir la tabla en dos tablas: </h4>
+
+<p> ➣ Tabla Compras: | idCompra idProducto |
+
+idProveedor | cantidad | fechaCompra |</p>
+
+<p> ➣ Tabla ProductosCompras: | idCompra | idProducto
+
+precio | descripción | </p>
+
+<p> ➣ Tabla Ventas: 
+
+<h4>• Dividir la tabla en dos tablas: </h4>
+
+<p> ➣ Tabla Ventas: | idVenta | idCliente | cantidad | total
+
+| fechaVenta |</p>
+
+<p> ➣ Tabla ClientesVentas: idVenta | idCliente |
+
+nombre | teléfono | dirección | </p>
+  <img src="tabla2.png">
+      
+    <h2>Explicación</h2>
+
+<h3>Tabla Productos:</h3>
+
+La columna "nombre" se dividió en dos columnas: "nombre" y "tipo".
+
+La columna "descripción" se dividió en dos columnas: "ingredientes" y "métodos preparación". de
+
+<h3>Tabla Proveedores:</h3>
+
+La columna "contacto" se dividió en dos tablas: "Proveedores" y "Contacto Proveedores".
+
+<h3>Tabla Compras:</h3>
+
+La columna "descripción" se movió a la tabla "Productos Compras".
+
+<h3>Tabla Ventas:</h3>
+
+La columna "cliente" se dividió en dos tablas: "Ventas" y "Clientes Ventas".
+
+<br><p>Estas tablas están en primera, segunda y tercera forma normal, ya que cumplen con las reglas de cada forma normal.</p>></br>
+    <h2>Tablas Normalizadas</h2>
+    <br>
+      <h3>tablas productos</h3>
+      <img src="tabla3.png">
+        <h3>Tabla Descripcion de productos </h3>
+        <img src="tabla4.png">
+          <h3>Tabla de Proveedores</h3>
+          <img src="tabla5.png">"
+            <h3>Tabla Contacto de Proveedores</h3>
+            <img src="tabla6.png">
+              <h3>Tabla de compras</h3>
+              <img src="tabla7.png">
+                <h3>Tabla Productos-Compras</h3>
+                <img src="tabla8.png">
+                  <h3>Tabla Ventas</h3>
+                  <img src="tabla9.png">
+                    <h3>Tabla Clientes-Ventas</h3>
+                    <img src="tabla10.png">
+                     <p>Estas tablas están en primera, segunda y tercera forma normal, ya que cumplen con las reglas de cada forma normal.</p> 
+ 
+<br><h2>Beneficios de las tablas normalizadas</h2></br>
+                    <p> ➣ Reducción de la redundancia de datos: Las tablas normalizadas eliminan los datos redundantes, lo que puede mejorar el rendimiento y la integridad de los datos.</p>
+
+<p> ➣ Mejora de la integridad de los datos: Las tablas normalizadas hacen que los datos sean más consistentes y completos.</p>
+
+<p> ➣ Pacilidan de mantenujemo: Las tablas normalizadas son más fáciles de mantener y actualizar </p>
+
+<p> ➣ Mejora de la e bielicia de las consultas: Las tablas normalizadas permiten realizar consultas más eficientes. </p>
+
+    </div>
+  <div>
+    
+  </div>
+    <nav>
+      <ul>
+        <li><i class="fas fa-home"></i><a href="/home/kaede/programing/Dnji.io/principal/Page Inicio (final).html"> Inicio</a></li>
+        <li><i class="fas fa-user-alt"></i><a href="/home/kaede/programing/Dnji.io/Inteligencia artificial/003 imagenes expansivas/index.html"> Arte</a></li>
+        <li><i class="fas fa-envelope"></i><a href="#"> Contacto</a></li>
+      </ul>
+    </nav>
+    <script src="script.js"></script>
+  </body>
+</html>
